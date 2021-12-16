@@ -1,19 +1,19 @@
 class Yatzy:
 
     @staticmethod
-    def chance(dices):
+    def chance(dice):
         
         total = 0
-        for i in dices:
-            total += i
+        for value in dice:
+            total += value
         return total
 
     @staticmethod
     def yatzy(dice):
         
         total = 0
-        for i in dice:
-            if dice[0] == dice[i]:
+        for value in dice:
+            if dice[0] == dice[value]:
                 total += 1
             else:
                 total -= 1
@@ -24,21 +24,12 @@ class Yatzy:
             return 0
     
     @staticmethod
-    def ones( d1,  d2,  d3,  d4,  d5):
+    def ones(dice):
         sum = 0
-        if (d1 == 1):
-            sum += 1
-        if (d2 == 1):
-            sum += 1
-        if (d3 == 1):
-            sum += 1
-        if (d4 == 1):
-            sum += 1
-        if (d5 == 1): 
-            sum += 1
-
+        for value in dice:
+            if dice[value - 1] == 1:
+                sum += 1
         return sum
-    
 
     @staticmethod
     def twos( d1,  d2,  d3,  d4,  d5):
