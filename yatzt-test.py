@@ -18,6 +18,9 @@ def test_yatzy():
     assert 0 == Yatzy.yatzy([1, 3, 1, 1, 1])
     assert 50 == Yatzy.yatzy([2, 2, 2, 2, 2])
 
+def test_ones():
+    assert 0 == Yatzy.ones([3, 3, 3, 4, 5])
+    assert 5 == Yatzy.ones([1, 1, 1, 1, 1])    
 
 # @pytest.fixture
 # def inyector():
