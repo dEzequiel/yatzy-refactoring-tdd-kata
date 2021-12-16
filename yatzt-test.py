@@ -15,6 +15,9 @@ def test_chance():
 def test_yatzy():
     assert 50 == Yatzy.yatzy([1, 1, 1, 1, 1])
     assert 0 == Yatzy.yatzy([1, 2, 1, 1, 1])
+    assert 0 == Yatzy.yatzy([1, 3, 1, 1, 1])
+    assert 50 == Yatzy.yatzy([2, 2, 2, 2, 2])
+
 
 # @pytest.fixture
 # def inyector():
