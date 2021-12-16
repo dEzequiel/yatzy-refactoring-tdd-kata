@@ -2,6 +2,7 @@ class Yatzy:
 
     @staticmethod
     def chance(dices):
+        
         total = 0
         for i in dices:
             total += i
@@ -9,15 +10,18 @@ class Yatzy:
 
     @staticmethod
     def yatzy(dice):
-    
-        counts = [0]*(len(dice)+1)
-        for die in dice:
-            counts[die-1] += 1
-        for i in range(len(counts)):
-            if counts[i] == 5:
-                return 50
-        return 0
-    
+        
+        total = 0
+        for i in dice:
+            if dice[0] == dice[i]:
+                total += 1
+            else:
+                total -= 1
+        
+        if total == 5:
+            return 50
+        else:
+            return 0
     
     @staticmethod
     def ones( d1,  d2,  d3,  d4,  d5):
