@@ -42,12 +42,8 @@ class Yatzy:
         return counter * 4    
 
     def fives(self):
-        s = 0
-        i = 0
-        for i in range(len(self.dice)): 
-            if (self.dice[i] == 5):
-                s = s + 5
-        return s
+        counter = self.dice.count(5)
+        return counter * 5
     
 
     def sixes(self):
