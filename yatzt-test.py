@@ -59,6 +59,19 @@ def test_fives():
     result3 = object3.fives()
     assert result3 == 0
 
+def test_sixes():
+    object1 = Yatzy([6, 6, 6, 6, 6])
+    result1 = object1.sixes()
+    assert result1 == 30
+    
+    object2 = Yatzy([1, 2, 3, 4, 6])
+    result2 = object2.sixes()
+    assert result2 == 6
+    
+    object3 = Yatzy([1, 2, 3, 4, 5])
+    result3 = object3.sixes()
+    assert result3 == 0
+
 # @pytest.fixture
 # def inyector():
 #     # Es el setup de unittest o de JUnit
