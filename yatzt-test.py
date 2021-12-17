@@ -19,12 +19,19 @@ def test_yatzy():
     assert 50 == Yatzy.yatzy([2, 2, 2, 2, 2])
 
 def test_ones():
-    assert 0 == Yatzy.ones([3, 3, 3, 4, 5])
+    assert 2 == Yatzy.ones([1, 3, 3, 1, 5])
     assert 5 == Yatzy.ones([1, 1, 1, 1, 1]) 
-
+    assert 0 == Yatzy.ones([2, 3, 4, 5, 6])
+    
 def test_twos():
     assert 0 == Yatzy.twos([3, 3, 3, 4, 5])
-    assert 10 == Yatzy.twos([2, 2, 2, 2, 2])  
+    assert 10 == Yatzy.twos([2, 2, 2, 2, 2]) 
+    assert 4 == Yatzy.twos([1, 3, 2, 4, 2]) 
+
+def test_threes():
+    assert 9 == Yatzy.threes([3, 3, 3, 4, 5])
+    assert 15 == Yatzy.threes([3, 3, 3, 3, 3]) 
+    assert 0 == Yatzy.threes([1, 2, 4, 5, 6])
 
 # @pytest.fixture
 # def inyector():
