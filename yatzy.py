@@ -1,5 +1,8 @@
 class Yatzy:
 
+    def __init__(self, dice):
+        self.dice = list(dice)
+    
     @staticmethod
     def chance(dice):
         
@@ -9,8 +12,7 @@ class Yatzy:
         return total
 
     @staticmethod
-    def yatzy(dice):
-        
+    def yatzy(dice):       
         check = True
         for value in dice:
             if dice[0] != dice[value]:
@@ -34,22 +36,10 @@ class Yatzy:
         counter = dice.count(3)
         return counter * 3
     
-
-    def __init__(self, d1, d2, d3, d4, _5):
-        self.dice = [0]*5
-        self.dice[0] = d1
-        self.dice[1] = d2
-        self.dice[2] = d3
-        self.dice[3] = d4
-        self.dice[4] = _5
-    
+    # metodo de instancia
     def fours(self):
-        sum = 0
-        for at in range(5):
-            if (self.dice[at] == 4): 
-                sum += 4
-        return sum
-    
+        counter = self.dice.count(4)
+        return counter * 4    
 
     def fives(self):
         s = 0
