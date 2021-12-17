@@ -20,7 +20,11 @@ def test_yatzy():
 
 def test_ones():
     assert 0 == Yatzy.ones([3, 3, 3, 4, 5])
-    assert 5 == Yatzy.ones([1, 1, 1, 1, 1])    
+    assert 5 == Yatzy.ones([1, 1, 1, 1, 1]) 
+
+def test_twos():
+    assert 0 == Yatzy.twos([3, 3, 3, 4, 5])
+    assert 10 == Yatzy.twos([2, 2, 2, 2, 2])  
 
 # @pytest.fixture
 # def inyector():
