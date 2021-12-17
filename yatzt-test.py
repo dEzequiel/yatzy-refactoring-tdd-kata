@@ -34,16 +34,29 @@ def test_threes():
     assert 0 == Yatzy.threes([1, 2, 4, 5, 6])
 
 def test_fours():
-    objeto1 = Yatzy([4, 4, 4, 4, 4])
-    result1 = objeto1.fours()
+    object1 = Yatzy([4, 4, 4, 4, 4])
+    result1 = object1.fours()
     assert result1 == 20
     
-    objeto2 = Yatzy([1, 2, 3, 4])
-    result2 = objeto2.fours()
+    object2 = Yatzy([1, 2, 3, 4])
+    result2 = object2.fours()
     assert result2 == 4
     
-    objeto3 = Yatzy([1, 2, 3, 5])
-    result3 = objeto3.fours()
+    object3 = Yatzy([1, 2, 3, 5])
+    result3 = object3.fours()
+    assert result3 == 0
+
+def test_fives():
+    object1 = Yatzy([5, 5, 5, 5, 5])
+    result1 = object1.fives()
+    assert result1 == 25
+    
+    object2 = Yatzy([1, 2, 3, 4, 5])
+    result2 = object2.fives()
+    assert result2 == 5
+    
+    object3 = Yatzy([1, 2, 3, 4, 6])
+    result3 = object3.fives()
     assert result3 == 0
 
 # @pytest.fixture
@@ -54,7 +67,7 @@ def test_fours():
 
 
 # def test_fours(inyector):
-#     # Es necesario un objeto ya creado
+#     # Es necesario un object ya creado
 #     valorEsperado = 4
 #     # No puedo testear con fixtures = inyeccion de dependencias
 #     # los metodos estaticos como chance()
