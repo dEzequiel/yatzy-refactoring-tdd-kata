@@ -33,6 +33,19 @@ def test_threes():
     assert 15 == Yatzy.threes([3, 3, 3, 3, 3]) 
     assert 0 == Yatzy.threes([1, 2, 4, 5, 6])
 
+def test_fours():
+    objeto1 = Yatzy([4, 4, 4, 4, 4])
+    result1 = objeto1.fours()
+    assert result1 == 20
+    
+    objeto2 = Yatzy([1, 2, 3, 4])
+    result2 = objeto2.fours()
+    assert result2 == 4
+    
+    objeto3 = Yatzy([1, 2, 3, 5])
+    result3 = objeto3.fours()
+    assert result3 == 0
+
 # @pytest.fixture
 # def inyector():
 #     # Es el setup de unittest o de JUnit
