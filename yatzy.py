@@ -11,17 +11,13 @@ class Yatzy:
     @staticmethod
     def yatzy(dice):
         
-        total = 0
+        check = True
         for value in dice:
-            if dice[0] == dice[value]:
-                total += 1
-            else:
-                total -= 1
-        
-        if total == 5:
-            return 50
-        else:
-            return 0
+            if dice[0] != dice[value]:
+                check = False
+                break;
+        if (check == True): return 50
+        else: return 0
     
     @staticmethod
     def ones(dice):
@@ -32,18 +28,11 @@ class Yatzy:
         return sum
 
     @staticmethod
-    def twos( d1,  d2,  d3,  d4,  d5):
+    def twos(dice):
         sum = 0
-        if (d1 == 2):
-             sum += 2
-        if (d2 == 2):
-             sum += 2
-        if (d3 == 2):
-             sum += 2
-        if (d4 == 2):
-             sum += 2
-        if (d5 == 2):
-             sum += 2
+        for value in dice:
+            if dice[value - 1] == 2:
+                sum += 2
         return sum
     
     @staticmethod
