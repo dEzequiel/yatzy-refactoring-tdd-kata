@@ -75,8 +75,12 @@ def test_sixes():
 def test_score_pair():
     assert 10 == Yatzy.score_pair([2, 2, 2, 5, 5])
     assert 12 == Yatzy.score_pair([5, 5, 6, 6, 1])
-    assert 2 == Yatzy.score_pair([1, 2, 3, 4, 5])
-    
+    assert 0  == Yatzy.score_pair([1, 2, 3, 4, 5])
+
+def test_two_pair():
+    assert 8 == Yatzy.two_pair([1, 1, 2, 3, 3])
+    assert 0 == Yatzy.two_pair([2, 2, 1, 3, 4])
+    assert 6 == Yatzy.two_pair([1, 1, 2, 2, 3])
     
 # @pytest.fixture
 # def inyector():
