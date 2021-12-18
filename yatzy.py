@@ -1,3 +1,6 @@
+from typing import Dict, NoReturn
+
+
 class Yatzy:
 
     def __init__(self, dice):
@@ -65,24 +68,28 @@ class Yatzy:
             
     
     @staticmethod
-    def two_pair( d1,  d2,  d3,  d4,  d5):
-        counts = [0]*6
-        counts[d1-1] += 1
-        counts[d2-1] += 1
-        counts[d3-1] += 1
-        counts[d4-1] += 1
-        counts[d5-1] += 1
-        n = 0
-        score = 0
-        for i in range(6):
-            if (counts[6-i-1] >= 2):
-                n = n+1
-                score += (6-i)
-                    
-        if (n == 2):
-            return score * 2
-        else:
+    def two_pair(dice):
+        
+        pairs = []
+        for value in dice:
+            if dice.count(value) == 2:
+                pairs.append(value)
+        
+        if len(pairs) == 1:
             return 0
+        
+        pairs.pop()
+        pairs.pop(0)
+        
+        sum = 0
+        print(pairs)
+        for value in pairs:
+            sum += value * 2
+        
+        return sum
+                       
+            
+            
     
     @staticmethod
     def four_of_a_kind( _1,  _2,  d3,  d4,  d5):
