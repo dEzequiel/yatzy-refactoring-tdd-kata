@@ -120,20 +120,13 @@ class Yatzy:
     
 
     @staticmethod
-    def largeStraight( d1,  d2,  d3,  d4,  d5):
-        tallies = [0]*6
-        tallies[d1-1] += 1
-        tallies[d2-1] += 1
-        tallies[d3-1] += 1
-        tallies[d4-1] += 1
-        tallies[d5-1] += 1
-        if (tallies[1] == 1 and
-            tallies[2] == 1 and
-            tallies[3] == 1 and
-            tallies[4] == 1
-            and tallies[5] == 1):
-            return 20
-        return 0
+    def large_straight(dice):
+        
+        for i in range(2, 7):
+            if dice.count(i) != 1:  # If number appear more than one, is not a sequence.
+                return 0
+        
+        return Yatzy.chance(dice)
     
 
     @staticmethod
