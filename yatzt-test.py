@@ -81,7 +81,22 @@ def test_two_pair():
     assert 8 == Yatzy.two_pair([1, 1, 2, 3, 3])
     assert 0 == Yatzy.two_pair([2, 2, 1, 3, 4])
     assert 6 == Yatzy.two_pair([1, 1, 2, 2, 3])
+
+def test_four__of_akind ():
+    assert 8 == Yatzy.four_of_a_kind([2, 2, 2, 2, 5])
+    assert 0 == Yatzy.four_of_a_kind([1, 2, 3, 4, 5])
+
+def test_three_of_a_kind():
+    assert 12 == Yatzy.three_of_a_kind([3,4,4,4,5])
+    assert 0 == Yatzy.three_of_a_kind([5, 5, 5, 5, 4])
+    assert 9 == Yatzy.three_of_a_kind([6, 5, 3, 3, 3]) 
+    assert 15 == Yatzy.three_of_a_kind([5, 1, 2, 5, 5])  
+    assert 3 == Yatzy.three_of_a_kind([1, 1, 1, 4, 3])
     
+def test_small_straight():
+    assert 0 == Yatzy.three_of_a_kind([1, 2, 3, 4, 5])
+    assert 15 == Yatzy.three_of_a_kind([1, 2, 3, 4, 5])
+
 # @pytest.fixture
 # def inyector():
 #     # Es el setup de unittest o de JUnit
