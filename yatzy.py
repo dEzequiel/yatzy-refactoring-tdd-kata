@@ -1,3 +1,6 @@
+from typing import SupportsAbs
+
+
 class Yatzy:
     def __init__(self, dice):
         self.dice = list(dice)
@@ -65,23 +68,16 @@ class Yatzy:
     @staticmethod
     def two_pair(dice):
 
-        pairs = []
-        for value in dice:
-            if dice.count(value) == 2:
-                pairs.append(value)
+        repeated = []
+        for i in dice:
+            if dice.count(i) >= 2:
+                repeated.append(i)
 
-        if len(pairs) == 1:
-            return 0
+        no_repeats = list(dict.fromkeys(repeated))
 
-        pairs.pop()
-        pairs.pop(0)
+        sumatory = [x * 2 for x in no_repeats]
 
-        sum = 0
-        print(pairs)
-        for value in pairs:
-            sum += value * 2
-
-        return sum
+        return sum(sumatory)
 
     @staticmethod
     def four_of_a_kind(dice):
@@ -122,33 +118,15 @@ class Yatzy:
 
         return Yatzy.chance(dice)
 
-    @staticmethod
-    def fullHouse(d1, d2, d3, d4, d5):
-        tallies = []
-        _2 = False
-        i = 0
-        _2_at = 0
-        _3 = False
-        _3_at = 0
+    # @staticmethod
+    # def full_house(dice):
+    #     two = Yatzy.two_pair(dice)
+    #     three = Yatzy.three_of_a_kind(dice)
 
-        tallies = [0] * 6
-        tallies[d1 - 1] += 1
-        tallies[d2 - 1] += 1
-        tallies[d3 - 1] += 1
-        tallies[d4 - 1] += 1
-        tallies[d5 - 1] += 1
+    #     print(two)
+    #     print(three)
 
-        for i in range(6):
-            if tallies[i] == 2:
-                _2 = True
-                _2_at = i + 1
-
-        for i in range(6):
-            if tallies[i] == 3:
-                _3 = True
-                _3_at = i + 1
-
-        if _2 and _3:
-            return _2_at * 2 + _3_at * 3
-        else:
-            return 0
+    #     if two and three:
+    #         return two + three
+    #     else:
+    #         return 0
