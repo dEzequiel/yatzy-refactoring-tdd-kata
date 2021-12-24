@@ -86,9 +86,10 @@ def test_score_pair():
 
 
 def test_two_pair():
-    assert 8 == Yatzy.two_pair([1, 1, 2, 3, 3])
-    assert 0 == Yatzy.two_pair([2, 2, 1, 3, 4])
+    assert 8 == Yatzy.two_pair([1, 1, 1, 3, 3])
+    assert 4 == Yatzy.two_pair([2, 2, 1, 3, 4])
     assert 6 == Yatzy.two_pair([1, 1, 2, 2, 3])
+    assert 10 == Yatzy.two_pair([2, 2, 2, 3, 3])
 
 
 def test_four__of_akind():
@@ -119,6 +120,10 @@ def test_large_straight():
     assert 0 == Yatzy.large_straight([1, 3, 4, 5, 5])
     assert 0 == Yatzy.large_straight([6, 6, 6, 6, 6])
     assert 0 == Yatzy.large_straight([1, 2, 3, 4, 6])
+
+
+# def test_full_house():
+#     assert 8 == Yatzy.full_house([1, 1, 2, 2, 2])
 
 
 # @pytest.fixture
