@@ -118,15 +118,11 @@ class Yatzy:
 
         return Yatzy.chance(dice)
 
-    # @staticmethod
-    # def full_house(dice):
-    #     two = Yatzy.two_pair(dice)
-    #     three = Yatzy.three_of_a_kind(dice)
+    @staticmethod
+    def full_house(dice):
 
-    #     print(two)
-    #     print(three)
-
-    #     if two and three:
-    #         return two + three
-    #     else:
-    #         return 0
+        if Yatzy.two_pair(dice) and Yatzy.three_of_a_kind(dice):
+            sumatory = sum(dice)
+            return sumatory
+        else:
+            return 0
