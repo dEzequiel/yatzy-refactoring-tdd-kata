@@ -122,8 +122,12 @@ def test_large_straight():
     assert 0 == Yatzy.large_straight([1, 2, 3, 4, 6])
 
 
-# def test_full_house():
-#     assert 8 == Yatzy.full_house([1, 1, 2, 2, 2])
+def test_full_house():
+    assert 8 == Yatzy.full_house([1, 1, 2, 2, 2])
+    assert 0 == Yatzy.full_house([1, 3, 1, 3, 2])
+    assert 12 == Yatzy.full_house([3, 3, 2, 2, 2])
+    assert 8 == Yatzy.full_house([1, 1, 2, 2, 2])
+    assert 14 == Yatzy.full_house([4, 2, 2, 4, 2])
 
 
 # @pytest.fixture
