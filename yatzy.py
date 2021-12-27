@@ -1,10 +1,4 @@
-from typing import SupportsAbs
-
-
 class Yatzy:
-    def __init__(self, dice):
-        self.dice = list(dice)
-
     @staticmethod
     def chance(dice):
 
@@ -15,15 +9,22 @@ class Yatzy:
 
     @staticmethod
     def yatzy(dice):
-        check = True
+
+        # check = True
+        # for value in dice:
+        #     if dice[0] != dice[value]:
+        #         check = False
+        #         break
+        # if check == True:
+        #     return 50
+        # else:
+        #     return 0
+
+        comparing_number = dice[0]
         for value in dice:
-            if dice[0] != dice[value]:
-                check = False
-                break
-        if check == True:
-            return 50
-        else:
-            return 0
+            if comparing_number != dice[value]:
+                return 0
+        return 50
 
     @staticmethod
     def ones(dice):
@@ -41,16 +42,19 @@ class Yatzy:
         return counter * 3
 
     # metodo de instancia
-    def fours(self):
-        counter = self.dice.count(4)
+    @staticmethod
+    def fours(dice):
+        counter = dice.count(4)
         return counter * 4
 
-    def fives(self):
-        counter = self.dice.count(5)
+    @staticmethod
+    def fives(dice):
+        counter = dice.count(5)
         return counter * 5
 
-    def sixes(self):
-        counter = self.dice.count(6)
+    @staticmethod
+    def sixes(dice):
+        counter = dice.count(6)
         return counter * 6
 
     @staticmethod
@@ -80,6 +84,14 @@ class Yatzy:
         return sum(sumatory)
 
     @staticmethod
+    def three_of_a_kind(dice):
+
+        for i in dice:
+            if dice.count(i) == 3:
+                return i * 3
+        return 0
+
+    @staticmethod
     def four_of_a_kind(dice):
 
         for i in dice:
@@ -87,14 +99,6 @@ class Yatzy:
                 return i * 4
 
             return 0
-
-    @staticmethod
-    def three_of_a_kind(dice):
-
-        for i in dice:
-            if dice.count(i) == 3:
-                return i * 3
-        return 0
 
     @staticmethod
     def small_straight(dice):
@@ -122,7 +126,6 @@ class Yatzy:
     def full_house(dice):
 
         if Yatzy.two_pair(dice) and Yatzy.three_of_a_kind(dice):
-            sumatory = sum(dice)
-            return sumatory
+            return Yatzy.chance(dice)
         else:
             return 0
