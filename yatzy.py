@@ -1,4 +1,7 @@
 class Yatzy:
+    def __init__(self, *dice):
+        self.dice = list(dice)
+
     @staticmethod
     def chance(dice):
 
