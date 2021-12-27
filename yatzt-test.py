@@ -23,6 +23,7 @@ def test_ones():
     assert 2 == Yatzy.ones([1, 3, 3, 1, 5])
     assert 5 == Yatzy.ones([1, 1, 1, 1, 1])
     assert 0 == Yatzy.ones([2, 3, 4, 5, 6])
+    assert 0 == Yatzy.ones([3, 3, 3, 4, 5])
 
 
 def test_twos():
@@ -35,48 +36,25 @@ def test_threes():
     assert 9 == Yatzy.threes([3, 3, 3, 4, 5])
     assert 15 == Yatzy.threes([3, 3, 3, 3, 3])
     assert 0 == Yatzy.threes([1, 2, 4, 5, 6])
+    assert 0 == Yatzy.threes([1, 1, 1, 1, 1])
 
 
 def test_fours():
-    object1 = Yatzy([4, 4, 4, 4, 4])
-    result1 = object1.fours()
-    assert result1 == 20
-
-    object2 = Yatzy([1, 2, 3, 4])
-    result2 = object2.fours()
-    assert result2 == 4
-
-    object3 = Yatzy([1, 2, 3, 5])
-    result3 = object3.fours()
-    assert result3 == 0
+    assert 20 == Yatzy.fours([4, 4, 4, 4, 4])
+    assert 4 == Yatzy.fours([1, 2, 3, 4])
+    assert 0 == Yatzy.fours([1, 2, 3, 5])
 
 
 def test_fives():
-    object1 = Yatzy([5, 5, 5, 5, 5])
-    result1 = object1.fives()
-    assert result1 == 25
-
-    object2 = Yatzy([1, 2, 3, 4, 5])
-    result2 = object2.fives()
-    assert result2 == 5
-
-    object3 = Yatzy([1, 2, 3, 4, 6])
-    result3 = object3.fives()
-    assert result3 == 0
+    assert 25 == Yatzy.fives([5, 5, 5, 5, 5])
+    assert 5 == Yatzy.fives([1, 2, 3, 4, 5])
+    assert 0 == Yatzy.fives([1, 2, 3, 4, 6])
 
 
 def test_sixes():
-    object1 = Yatzy([6, 6, 6, 6, 6])
-    result1 = object1.sixes()
-    assert result1 == 30
-
-    object2 = Yatzy([1, 2, 3, 4, 6])
-    result2 = object2.sixes()
-    assert result2 == 6
-
-    object3 = Yatzy([1, 2, 3, 4, 5])
-    result3 = object3.sixes()
-    assert result3 == 0
+    assert 30 == Yatzy.sixes([6, 6, 6, 6, 6])
+    assert 6 == Yatzy.sixes([1, 2, 3, 4, 6])
+    assert 0 == Yatzy.sixes([1, 2, 3, 4, 5])
 
 
 def test_score_pair():
