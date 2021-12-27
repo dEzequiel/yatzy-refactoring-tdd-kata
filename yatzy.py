@@ -10,16 +10,6 @@ class Yatzy:
     @staticmethod
     def yatzy(dice):
 
-        # check = True
-        # for value in dice:
-        #     if dice[0] != dice[value]:
-        #         check = False
-        #         break
-        # if check == True:
-        #     return 50
-        # else:
-        #     return 0
-
         comparing_number = dice[0]
         for value in dice:
             if comparing_number != dice[value]:
