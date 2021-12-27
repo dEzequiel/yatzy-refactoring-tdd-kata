@@ -31,7 +31,6 @@ class Yatzy:
         counter = dice.count(3)
         return counter * 3
 
-    # metodo de instancia
     @staticmethod
     def fours(dice):
         counter = dice.count(4)
@@ -71,7 +70,7 @@ class Yatzy:
 
         sumatory = [x * 2 for x in no_repeats]
 
-        return sum(sumatory)
+        return Yatzy.chance(sumatory)
 
     @staticmethod
     def three_of_a_kind(dice):
@@ -93,24 +92,18 @@ class Yatzy:
     @staticmethod
     def small_straight(dice):
 
-        # Generates an already sorted list to compare with given list.
-        lista = []
-        for n in range(1, 6):
-            lista.append(n)
-
-        if dice == lista:
-            return 15
-        else:
+        if dice != [1, 2, 3, 4, 5]:
             return 0
+        else:
+            return Yatzy.chance(dice)
 
     @staticmethod
     def large_straight(dice):
 
-        for i in range(2, 7):
-            if dice.count(i) != 1:  # If number appear more than one, is not a sequence.
-                return 0
-
-        return Yatzy.chance(dice)
+        if dice != [2, 3, 4, 5, 6]:
+            return 0
+        else:
+            return Yatzy.chance(dice)
 
     @staticmethod
     def full_house(dice):
