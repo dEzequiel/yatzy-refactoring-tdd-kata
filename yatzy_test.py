@@ -5,11 +5,6 @@ from yatzy import Yatzy
 # The player scores the sum of all dice, no matter what they read.
 
 
-def test_constructor():
-    x = Yatzy([1, 2, 3, 4, 5])
-    assert x == Yatzy([-1, 2, 3, 4, 5])
-
-
 def test_chance():
     # iterar sobre *args evita codigo cableado a 5 argumentos
     assert 15 == Yatzy.chance([1, 2, 3, 4, 5])
@@ -111,18 +106,3 @@ def test_full_house():
     assert 12 == Yatzy.full_house([3, 3, 2, 2, 2])
     assert 8 == Yatzy.full_house([1, 1, 2, 2, 2])
     assert 14 == Yatzy.full_house([4, 2, 2, 4, 2])
-
-
-# @pytest.fixture
-# def inyector():
-#     # Es el setup de unittest o de JUnit
-#     tirada = Yatzy(1, 2, 3, 4, 5)
-#     return tirada
-
-
-# def test_fours(inyector):
-#     # Es necesario un object ya creado
-#     valorEsperado = 4
-#     # No puedo testear con fixtures = inyeccion de dependencias
-#     # los metodos estaticos como chance()
-#     assert valorEsperado == inyector.fours()
