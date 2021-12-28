@@ -5,6 +5,11 @@ from yatzy import Yatzy
 # The player scores the sum of all dice, no matter what they read.
 
 
+def test_constructor():
+    x = Yatzy([1, 2, 3, 4, 5])
+    assert x == Yatzy([-1, 2, 3, 4, 5])
+
+
 def test_chance():
     # iterar sobre *args evita codigo cableado a 5 argumentos
     assert 15 == Yatzy.chance([1, 2, 3, 4, 5])
