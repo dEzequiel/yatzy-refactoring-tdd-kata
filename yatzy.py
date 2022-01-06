@@ -79,20 +79,19 @@ class Yatzy:
     def three_of_a_kind(dice):
         
         trio = []
-
         for i in dice:
             if dice.count(i) >= 3 and trio.count(i) < 3:
-                return i * 3
-        return 0
+               trio.append(i)
+        return sum(trio)
 
     @staticmethod
     def four_of_a_kind(dice):
-
+        
+        quarter = []
         for i in dice:
-            if dice.count(i) == 4:
-                return i * 4
-
-            return 0
+            if dice.count(i) >= 4 and quarter.count(i) < 4:
+                quarter.append(i)
+        return sum(quarter)
 
     @staticmethod
     def small_straight(dice):
