@@ -3,7 +3,7 @@
 Kata about refactoring and TDD from the book [The Coding Dojo Handbook, a practical guide to creating a space where good programmers can become great programmers](https://leanpub.com/codingdojohandbook) by Emily Bache.
 
 This is the README.MD file published at [Yatzy Refactoring Kata repository.](https://github.com/emilybache/Yatzy-Refactoring-Kata)
-Modification made by Emily Bache, see [kata github repository](https://github.com/emilybache/Yatzy-Refactoring-Kata)
+Modification made by Emily Bache. The problem that this code is designed to solve is explained here: [Yatzy](https://sammancoaching.org/kata_descriptions/yatzy.html)
 
 This Refactoring Kata was designed by Jon Jagger and is available in his Cyber-Dojo. See [his blog post](http://jonjagger.blogspot.com/2012/05/yahtzee-cyber-dojo-refactoring-in-java.html)
 
