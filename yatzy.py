@@ -77,9 +77,11 @@ class Yatzy:
 
     @staticmethod
     def three_of_a_kind(dice):
+        
+        trio = []
 
         for i in dice:
-            if dice.count(i) == 3:
+            if dice.count(i) >= 3 and trio.count(i) < 3:
                 return i * 3
         return 0
 
