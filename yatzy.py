@@ -104,10 +104,10 @@ class Yatzy:
     @staticmethod
     def large_straight(dice):
 
-        if dice != [2, 3, 4, 5, 6]:
-            return 0
-        else:
-            return Yatzy.chance(dice)
+        for i in range(2, 7):
+            if dice.count(i) != 1:
+                return 0
+        return Yatzy.chance(dice)
 
     @staticmethod
     def full_house(dice):
