@@ -72,13 +72,13 @@ class Yatzy:
     def two_pair(dice):
 
         repeated = []
-        for i in dice:
-            if dice.count(i) >= 2:
-                repeated.append(i)
+        for value in dice:
+            if dice.count(value) >= 2:
+                repeated.append(value)
 
         no_repeats = list(dict.fromkeys(repeated))
 
-        sumatory = [x * 2 for x in no_repeats]
+        sumatory = [value * 2 for value in no_repeats]
 
         return Yatzy.chance(sumatory)
 
@@ -86,18 +86,18 @@ class Yatzy:
     def three_of_a_kind(dice):
         
         trio = []
-        for i in dice:
-            if dice.count(i) >= 3 and trio.count(i) < 3:
-               trio.append(i)
+        for value in dice:
+            if dice.count(value) >= 3 and trio.count(value) < 3:
+               trio.append(value)
         return sum(trio)
 
     @staticmethod
     def four_of_a_kind(dice):
         
         quarter = []
-        for i in dice:
-            if dice.count(i) >= 4 and quarter.count(i) < 4:
-                quarter.append(i)
+        for value in dice:
+            if dice.count(value) >= 4 and quarter.count(value) < 4:
+                quarter.append(value)
         return sum(quarter)
 
     @staticmethod
