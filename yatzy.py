@@ -16,7 +16,7 @@ class Yatzy:
 
         comparing_number = dice[0]
         for value in dice:
-            if comparing_number != dice[value]:
+            if comparing_number != value:
                 return 0
         return 50
 
