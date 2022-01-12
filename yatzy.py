@@ -1,4 +1,5 @@
 class Yatzy:
+    
     def __init__(self, *dice):
         self.dice = list(dice)
 
@@ -21,33 +22,39 @@ class Yatzy:
 
     @staticmethod
     def ones(dice):
-        counter = dice.count(1)
-        return counter * 1
+        ONE = 1
+        total_count = dice.count(ONE)
+        return total_count * ONE
 
     @staticmethod
     def twos(dice):
-        counter = dice.count(2)
-        return counter * 2
+        TWO = 2
+        total_count = dice.count(TWO)
+        return total_count * TWO
 
     @staticmethod
     def threes(dice):
-        counter = dice.count(3)
-        return counter * 3
+        THREE = 3
+        total_count = dice.count(THREE)
+        return total_count * THREE
 
     @staticmethod
     def fours(dice):
-        counter = dice.count(4)
-        return counter * 4
+        FOUR = 4
+        total_count = dice.count(FOUR)
+        return total_count * FOUR
 
     @staticmethod
     def fives(dice):
-        counter = dice.count(5)
-        return counter * 5
+        FIVE = 5
+        total_count = dice.count(FIVE)
+        return total_count * FIVE
 
     @staticmethod
     def sixes(dice):
-        counter = dice.count(6)
-        return counter * 6
+        SIX = 6
+        total_count = dice.count(SIX)
+        return total_count * SIX
 
     @staticmethod
     def score_pair(dice):
