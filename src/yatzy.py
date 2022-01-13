@@ -55,15 +55,11 @@ class Yatzy:
 
     @staticmethod
     def score_pair(dice):
-        max_value = max(dice)
-        if dice.count(max_value) == 2:
-            return max_value * 2
-        else:
-            for value in dice:
-                if dice.count(value) == 2:
-                    return value * 2
-                else:
-                    return 0
+        PAIR = 2
+        for pip in Pips.reversed_values():
+            if dice.count(pip) >= 2:
+                return pip * PAIR
+        return 0
 
     @staticmethod
     def two_pair(dice):
@@ -100,11 +96,6 @@ class Yatzy:
     @staticmethod
     def small_straight(dice):
 
-        # for i in range(1, 6):
-        #     if dice.count(i) != 1:
-        #         return 0
-        # return sum(dice)
-
         for pip in Pips.minus(Pips.SIX):
             if dice.count(pip) != 1:
                 return 0
@@ -112,15 +103,13 @@ class Yatzy:
 
     @staticmethod
     def large_straight(dice):
-
-        for i in range(2, 7):
-            if dice.count(i) != 1:
+        for pip in Pips.minus(Pips.ONE):
+            if dice.count(pip) != 1:
                 return 0
         return Yatzy.chance(dice)
 
     @staticmethod
     def full_house(dice):
-
         if Yatzy.score_pair(dice) and Yatzy.three_of_a_kind(dice):
             return Yatzy.chance(dice)
         else:
