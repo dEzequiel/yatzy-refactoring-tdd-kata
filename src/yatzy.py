@@ -1,3 +1,5 @@
+from random import Random
+import random
 from src import pips
 from src.pips import Pips
 
@@ -17,7 +19,7 @@ class Yatzy:
     @staticmethod
     def yatzy(dice):
 
-        comparing_number = dice[0]
+        comparing_number = random.choice(dice)
         for value in dice:
             if comparing_number != value:
                 return 0
