@@ -1,3 +1,5 @@
+from src.pips import Pips
+
 class Yatzy:
     
     def __init__(self, *dice):
@@ -22,15 +24,13 @@ class Yatzy:
 
     @staticmethod
     def ones(dice):
-        ONE = 1
-        total_count = dice.count(ONE)
-        return total_count * ONE
+        ONE = Pips.ONE.value
+        return dice.count(ONE) * ONE
 
     @staticmethod
     def twos(dice):
-        TWO = 2
-        total_count = dice.count(TWO)
-        return total_count * TWO
+        TWO = Pips.TWO.value
+        return dice.count(TWO) * TWO
 
     @staticmethod
     def threes(dice):
