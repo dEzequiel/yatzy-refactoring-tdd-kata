@@ -100,10 +100,15 @@ class Yatzy:
     @staticmethod
     def small_straight(dice):
 
-        for i in range(1, 6):
-            if dice.count(i) != 1:
+        # for i in range(1, 6):
+        #     if dice.count(i) != 1:
+        #         return 0
+        # return sum(dice)
+
+        for pip in Pips.minus(Pips.SIX):
+            if dice.count(pip) != 1:
                 return 0
-        return sum(dice)
+        return Yatzy.chance(dice)
 
     @staticmethod
     def large_straight(dice):
