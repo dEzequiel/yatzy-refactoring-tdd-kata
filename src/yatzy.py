@@ -1,3 +1,4 @@
+from src import pips
 from src.pips import Pips
 
 class Yatzy:
@@ -34,27 +35,23 @@ class Yatzy:
 
     @staticmethod
     def threes(dice):
-        THREE = 3
-        total_count = dice.count(THREE)
-        return total_count * THREE
+        THREE = Pips.THREE.value
+        return dice.count(THREE) * THREE
 
     @staticmethod
     def fours(dice):
-        FOUR = 4
-        total_count = dice.count(FOUR)
-        return total_count * FOUR
+        FOUR = Pips.FOUR.value
+        return dice.count(FOUR) * FOUR
 
     @staticmethod
     def fives(dice):
-        FIVE = 5
-        total_count = dice.count(FIVE)
-        return total_count * FIVE
+        FIVE = Pips.FIVE.value
+        return dice.count(FIVE) * FIVE
 
     @staticmethod
     def sixes(dice):
-        SIX = 6
-        total_count = dice.count(SIX)
-        return total_count * SIX
+        SIX = Pips.SIX.value
+        return dice.count(SIX) * SIX
 
     @staticmethod
     def score_pair(dice):
