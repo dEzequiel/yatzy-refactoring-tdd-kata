@@ -61,17 +61,11 @@ class Yatzy:
 
     @staticmethod
     def two_pair(dice):
-
-        repeated = []
-        for value in dice:
-            if dice.count(value) >= 2:
-                repeated.append(value)
-
-        no_repeats = list(dict.fromkeys(repeated))
-
-        sumatory = [value * 2 for value in no_repeats]
-
-        return Yatzy.chance(sumatory)
+        PAIR = 2
+        pairs = set([value for value in dice if dice.count(value) >= PAIR])
+        if len(pairs) == PAIR:
+            return sum([value * 2 for value in pairs])
+        return 0
 
     @staticmethod
     def three_of_a_kind(dice):
