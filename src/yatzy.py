@@ -1,5 +1,6 @@
 from random import Random
 import random
+from xml.etree.ElementTree import PI
 from src import pips
 from src.pips import Pips
 from functools import reduce
@@ -71,17 +72,20 @@ class Yatzy:
     @staticmethod
     def three_of_a_kind(dice):
         
-        threesomes = list(filter((lambda value: dice.count(value) >= 3), dice))
-        return threesomes[0] * Pips.THREE
+        THREE = Pips.THREE.value
+        threesomes = list(filter((lambda value: dice.count(value) >= THREE), dice))
+                
+        return threesomes[Pips.ONE.value] * THREE if len(threesomes) != 0 else 0
+        
 
     @staticmethod
     def four_of_a_kind(dice):
+
+        FOUR = Pips.FOUR.value
+        quarters = list(filter((lambda value: dice.count(value) >= FOUR), dice))
         
-        quarter = []
-        for value in dice:
-            if dice.count(value) >= 4 and quarter.count(value) < 4:
-                quarter.append(value)
-        return sum(quarter)
+        return quarters[Pips.ONE.value] * FOUR if len(quarters) != 0 else 0
+
 
     @staticmethod
     def small_straight(dice):
