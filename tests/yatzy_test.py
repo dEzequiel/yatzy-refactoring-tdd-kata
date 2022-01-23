@@ -60,14 +60,20 @@ def test_sixes():
 def test_score_pair():
     assert 10 == Yatzy.score_pair([2, 2, 2, 5, 5])
     assert 12 == Yatzy.score_pair([5, 5, 6, 6, 1])
-    assert 0 == Yatzy.score_pair([1, 2, 3, 4, 5])
+    assert 6 == Yatzy.score_pair([3, 4, 3, 5, 6])
+    assert 10 == Yatzy.score_pair([5, 3, 3, 3, 5])
+    assert 12 == Yatzy.score_pair([5, 3, 6, 6, 5])
+    assert 4 == Yatzy.score_pair([1, 1, 2, 2, 2])
 
 @pytest.mark.test_two_pair
 def test_two_pair():
     assert 8 == Yatzy.two_pair([1, 1, 1, 3, 3])
-    assert 4 == Yatzy.two_pair([2, 2, 1, 3, 4])
+    assert 0 == Yatzy.two_pair([2, 2, 1, 3, 4])
     assert 6 == Yatzy.two_pair([1, 1, 2, 2, 3])
     assert 10 == Yatzy.two_pair([2, 2, 2, 3, 3])
+    assert 16 == Yatzy.two_pair([3, 3, 5, 4, 5])
+    assert 18 == Yatzy.two_pair([3, 3, 6, 6, 6])
+    assert 0 == Yatzy.two_pair([3, 3, 6, 5, 4])
 
 @pytest.mark.test_four_of_a_kind
 def test_four_of_akind():
@@ -89,6 +95,7 @@ def test_three_of_a_kind():
     assert 9 == Yatzy.three_of_a_kind([3,3,3,4,5])
     assert 15 == Yatzy.three_of_a_kind([5,3,5,4,5])
     assert 9 == Yatzy.three_of_a_kind([3,3,3,3,5])
+    assert 0 == Yatzy.three_of_a_kind([1, 2, 3, 4, 5])
 
 @pytest.mark.test_small_straight
 def test_small_straight():
