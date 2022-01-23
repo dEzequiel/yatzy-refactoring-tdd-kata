@@ -2,6 +2,7 @@ from random import Random
 import random
 from src import pips
 from src.pips import Pips
+from functools import reduce
 
 class Yatzy:
     
@@ -70,11 +71,8 @@ class Yatzy:
     @staticmethod
     def three_of_a_kind(dice):
         
-        trio = []
-        for value in dice:
-            if dice.count(value) >= 3 and trio.count(value) < 3:
-               trio.append(value)
-        return sum(trio)
+        threesomes = list(filter((lambda value: dice.count(value) >= 3), dice))
+        return threesomes[0] * Pips.THREE
 
     @staticmethod
     def four_of_a_kind(dice):
