@@ -92,15 +92,19 @@ class Yatzy:
     def small_straight(dice):
 
         TOTAL_SCORE = 15
-        pips_values = list(filter((lambda pip: dice.count(pip) == 1), Pips.minus(Pips.SIX)))
+        NO_REPEATED = 1
+        
+        pips_values = list(filter((lambda pip: dice.count(pip) == NO_REPEATED), Pips.minus(Pips.SIX)))
         return Yatzy.chance(pips_values) if Yatzy.chance(pips_values) == TOTAL_SCORE else 0
 
     @staticmethod
     def large_straight(dice):
-        for pip in Pips.minus(Pips.ONE):
-            if dice.count(pip) != 1:
-                return 0
-        return Yatzy.chance(dice)
+        
+        TOTAL_SCORE =20
+        NO_REPEATED = 1
+        
+        pips_values = list(filter((lambda pip: dice.count(pip) == NO_REPEATED), Pips.minus(Pips.ONE)))
+        return Yatzy.chance(pips_values) if Yatzy.chance(pips_values) == TOTAL_SCORE else 0
 
     @staticmethod
     def full_house(dice):
