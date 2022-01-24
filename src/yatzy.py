@@ -17,13 +17,16 @@ class Yatzy:
 
     @staticmethod
     def yatzy(dice):
-
-        comparing_number = random.choice(dice)
-        for value in dice:
-            if comparing_number != value:
-                return 0
-        return 50
-
+        '''
+        Applying set() to dice it deletes all repeated elements, 
+        so if the returned list length is 1, indicates all 5 elements 
+        where repeated and only contains one of this elements
+        '''
+        TOTAL_SCORE = 50
+        JUST_ONE_ELEMENT = 1
+        
+        return TOTAL_SCORE if len(set(dice)) == JUST_ONE_ELEMENT else 0
+    
     @staticmethod
     def ones(dice):
         ONE = Pips.ONE.value
