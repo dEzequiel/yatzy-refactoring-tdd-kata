@@ -1,5 +1,6 @@
 from random import Random
 import random
+from smtplib import OLDSTYLE_AUTH
 from xml.etree.ElementTree import PI
 from src import pips
 from src.pips import Pips
@@ -90,10 +91,9 @@ class Yatzy:
     @staticmethod
     def small_straight(dice):
 
-        for pip in Pips.minus(Pips.SIX):
-            if dice.count(pip) != 1:
-                return 0
-        return Yatzy.chance(dice)
+        TOTAL_SCORE = 15
+        pips_values = list(filter((lambda pip: dice.count(pip) == 1), Pips.minus(Pips.SIX)))
+        return Yatzy.chance(pips_values) if Yatzy.chance(pips_values) == TOTAL_SCORE else 0
 
     @staticmethod
     def large_straight(dice):
