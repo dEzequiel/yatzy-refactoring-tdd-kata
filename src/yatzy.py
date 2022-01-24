@@ -1,8 +1,6 @@
+from calendar import c
 from random import Random
-import random
-from smtplib import OLDSTYLE_AUTH
 from xml.etree.ElementTree import PI
-from src import pips
 from src.pips import Pips
 from functools import reduce
 
@@ -13,7 +11,7 @@ class Yatzy:
 
     @staticmethod
     def chance(dice):
-        return reduce((lambda pin, next_pin: pin + next_pin), dice)
+        return sum(dice)
 
     @staticmethod
     def yatzy(dice):
@@ -104,9 +102,10 @@ class Yatzy:
     def large_straight(dice):
         
         NO_REPEATED = 1
-        ALL_TURNS = 5
-        return Yatzy.chance(filter((lambda pip: sum(dice) if len(dice) == ALL_TURNS and dice.count(pip) == NO_REPEATED else 0), Pips.minus(Pips.ONE)))
-        
+        EXCLUDED_PIP = Pips.ONE.value
+
+        return Yatzy.chance(filter((lambda pip: Yatzy.chance(dice) if EXCLUDED_PIP not in dice and dice.count(pip) == NO_REPEATED else 0), dice))
+
 
     @staticmethod
     def full_house(dice):
@@ -114,3 +113,4 @@ class Yatzy:
             return Yatzy.chance(dice)
         else:
             return 0
+
