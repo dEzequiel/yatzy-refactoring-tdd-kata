@@ -13,7 +13,7 @@ class Yatzy:
 
     @staticmethod
     def chance(dice):
-        return sum(dice)
+        return reduce((lambda pin, next_pin: pin + next_pin), dice)
 
     @staticmethod
     def yatzy(dice):
@@ -100,11 +100,10 @@ class Yatzy:
     @staticmethod
     def large_straight(dice):
         
-        TOTAL_SCORE =20
         NO_REPEATED = 1
+        ALL_TURNS = 5
+        return Yatzy.chance(filter((lambda pip: sum(dice) if len(dice) == ALL_TURNS and dice.count(pip) == NO_REPEATED else 0), Pips.minus(Pips.ONE)))
         
-        pips_values = list(filter((lambda pip: dice.count(pip) == NO_REPEATED), Pips.minus(Pips.ONE)))
-        return Yatzy.chance(pips_values) if Yatzy.chance(pips_values) == TOTAL_SCORE else 0
 
     @staticmethod
     def full_house(dice):
