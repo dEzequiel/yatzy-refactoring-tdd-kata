@@ -1,6 +1,5 @@
 from calendar import c
 from random import Random
-from xml.etree.ElementTree import PI
 from src.pips import Pips
 from functools import reduce
 
@@ -92,18 +91,18 @@ class Yatzy:
     @staticmethod
     def small_straight(dice):
 
-        TOTAL_SCORE = 15
-        NO_REPEATED = 1
+        ALL_PIPS = 5
+        EXCLUDED_PIP = Pips.SIX.value
         
-        pips_values = list(filter((lambda pip: dice.count(pip) == NO_REPEATED), Pips.minus(Pips.SIX)))
-        return Yatzy.chance(pips_values) if Yatzy.chance(pips_values) == TOTAL_SCORE else 0
+        return Yatzy.chance(filter((lambda pip: Yatzy.chance(dice) if EXCLUDED_PIP not in dice and len(set(dice)) == ALL_PIPS else 0), dice))
 
     @staticmethod
     def large_straight(dice):
         
-        NO_REPEATED = 1
+        ALL_PIPS = 5
         EXCLUDED_PIP = Pips.ONE.value
-        return Yatzy.chance(filter((lambda pip: Yatzy.chance(dice) if EXCLUDED_PIP not in dice and dice.count(pip) == NO_REPEATED else 0), dice))
+
+        return Yatzy.chance(filter((lambda pip: Yatzy.chance(dice) if EXCLUDED_PIP not in dice and len(set(dice)) == ALL_PIPS else 0), dice))
 
 
     @staticmethod
