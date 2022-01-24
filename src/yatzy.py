@@ -103,7 +103,6 @@ class Yatzy:
         
         NO_REPEATED = 1
         EXCLUDED_PIP = Pips.ONE.value
-
         return Yatzy.chance(filter((lambda pip: Yatzy.chance(dice) if EXCLUDED_PIP not in dice and dice.count(pip) == NO_REPEATED else 0), dice))
 
 
