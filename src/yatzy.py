@@ -1,3 +1,5 @@
+from curses import pair_content
+from zmq import PAIR
 from src.pips import Pips
 
 ZERO = 0
@@ -19,6 +21,7 @@ class Yatzy:
 
     @staticmethod
     def yatzy(dice):
+        
         '''
         Applying set() to dice it deletes all repeated elements, 
         so if the returned list length is 1, indicates all 5 elements 
@@ -61,32 +64,32 @@ class Yatzy:
 
     @staticmethod
     def score_pair(dice):
-        PAIR = 2
         for pip in Pips.reversed_values():
-            if dice.count(pip) >= 2:
-                return pip * PAIR
-        return 0
+            if dice.count(pip) >= TWO:
+                return pip * TWO
+        return ZERO
+
+        # REVERSED_DICE = Pips.reversed_values()
+        # return Yatzy.chance(filter((lambda pip: pip * TWO if REVERSED_DICE.count(pip) >= TWO else ZERO), REVERSED_DICE))
 
     @staticmethod
     def two_pair(dice):
 
-        TWO = 2
-        PAIR_LIST = set(list(filter((lambda pip: dice.count(pip) >= TWO), dice)))
-        
-        return sum(PAIR_LIST) * TWO if len(PAIR_LIST) == TWO else 0
+        PAIRS_LIST = set(list(filter((lambda pip: dice.count(pip) >= TWO), dice)))
+        return sum(PAIRS_LIST) * TWO if len(PAIRS_LIST) == TWO else ZERO
 
     @staticmethod
     def three_of_a_kind(dice):
         
         threesomes = list(filter((lambda value: dice.count(value) >= THREE), dice))        
-        return threesomes[Pips.ONE.value] * THREE if len(threesomes) != 0 else 0
+        return threesomes[Pips.ONE.value] * THREE if len(threesomes) != ZERO else ZERO
         
 
     @staticmethod
     def four_of_a_kind(dice):
 
         quarters = list(filter((lambda value: dice.count(value) >= FOUR), dice))        
-        return quarters[Pips.ONE.value] * FOUR if len(quarters) != 0 else 0
+        return quarters[Pips.ONE.value] * FOUR if len(quarters) != ZERO else ZERO
 
 
     @staticmethod
@@ -95,7 +98,7 @@ class Yatzy:
         ALL_PIPS = 5
         EXCLUDED_PIP = Pips.SIX.value
         
-        return Yatzy.chance(filter((lambda pip: Yatzy.chance(dice) if EXCLUDED_PIP not in dice and len(set(dice)) == ALL_PIPS else 0), dice))
+        return Yatzy.chance(filter((lambda pip: Yatzy.chance(dice) if EXCLUDED_PIP not in dice and len(set(dice)) == ALL_PIPS else ZERO), dice))
 
     @staticmethod
     def large_straight(dice):
@@ -103,11 +106,10 @@ class Yatzy:
         ALL_PIPS = 5
         EXCLUDED_PIP = Pips.ONE.value
 
-        return Yatzy.chance(filter((lambda pip: Yatzy.chance(dice) if EXCLUDED_PIP not in dice and len(set(dice)) == ALL_PIPS else 0), dice))
-
+        return Yatzy.chance(filter((lambda pip: Yatzy.chance(dice) if EXCLUDED_PIP not in dice and len(set(dice)) == ALL_PIPS else ZERO), dice))
 
     @staticmethod
     def full_house(dice):
         
-        return Yatzy.chance(dice) if Yatzy.score_pair(dice) and Yatzy.three_of_a_kind(dice) else 0
+        return Yatzy.chance(dice) if Yatzy.score_pair(dice) and Yatzy.three_of_a_kind(dice) else ZERO
 
