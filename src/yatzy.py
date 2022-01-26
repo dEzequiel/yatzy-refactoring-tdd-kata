@@ -64,11 +64,11 @@ class Yatzy:
 
     @staticmethod
     def two_pair(dice):
-        PAIR = 2
-        pairs = set([value for value in dice if dice.count(value) >= PAIR])
-        if len(pairs) == PAIR:
-            return sum([value * 2 for value in pairs])
-        return 0
+
+        TWO = 2
+        PAIR_LIST = set(list(filter((lambda pip: dice.count(pip) >= TWO), dice)))
+        
+        return sum(PAIR_LIST) * TWO if len(PAIR_LIST) == TWO else 0
 
     @staticmethod
     def three_of_a_kind(dice):
