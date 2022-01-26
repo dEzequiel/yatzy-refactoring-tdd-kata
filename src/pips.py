@@ -20,7 +20,7 @@ class Pips(Enum):
     
     @classmethod
     def reversed_values(cls):
-        return reversed(cls.values())
+        return list(reversed(cls.values()))
     
 if __name__ == '__main__':
     pass
