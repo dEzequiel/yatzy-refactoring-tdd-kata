@@ -1,7 +1,12 @@
-from calendar import c
-from random import Random
 from src.pips import Pips
-from functools import reduce
+
+ZERO = 0
+ONE = 1
+TWO = 2
+THREE = 3
+FOUR = 4
+FIVE = 5
+SIX = 6
 
 class Yatzy:
     
@@ -22,37 +27,37 @@ class Yatzy:
         TOTAL_SCORE = 50
         JUST_ONE_ELEMENT = 1
         
-        return TOTAL_SCORE if len(set(dice)) == JUST_ONE_ELEMENT else 0
+        return TOTAL_SCORE if len(set(dice)) == JUST_ONE_ELEMENT else ZERO
     
     @staticmethod
     def ones(dice):
-        ONE = Pips.ONE.value
-        return dice.count(ONE) * ONE
+        ONE_PIP = Pips.ONE.value
+        return dice.count(ONE_PIP) * ONE
 
     @staticmethod
     def twos(dice):
-        TWO = Pips.TWO.value
-        return dice.count(TWO) * TWO
+        TWO_PIP = Pips.TWO.value
+        return dice.count(TWO_PIP) * TWO
 
     @staticmethod
     def threes(dice):
-        THREE = Pips.THREE.value
-        return dice.count(THREE) * THREE
+        THREE_PIP = Pips.THREE.value
+        return dice.count(THREE_PIP) * THREE
 
     @staticmethod
     def fours(dice):
-        FOUR = Pips.FOUR.value
-        return dice.count(FOUR) * FOUR
+        FOUR_PIP = Pips.FOUR.value
+        return dice.count(FOUR_PIP) * FOUR
 
     @staticmethod
     def fives(dice):
-        FIVE = Pips.FIVE.value
-        return dice.count(FIVE) * FIVE
+        FIVE_PIP = Pips.FIVE.value
+        return dice.count(FIVE_PIP) * FIVE
 
     @staticmethod
     def sixes(dice):
-        SIX = Pips.SIX.value
-        return dice.count(SIX) * SIX
+        SIX_PIP = Pips.SIX.value
+        return dice.count(SIX_PIP) * SIX
 
     @staticmethod
     def score_pair(dice):
@@ -73,18 +78,14 @@ class Yatzy:
     @staticmethod
     def three_of_a_kind(dice):
         
-        THREE = Pips.THREE.value
-        threesomes = list(filter((lambda value: dice.count(value) >= THREE), dice))
-                
+        threesomes = list(filter((lambda value: dice.count(value) >= THREE), dice))        
         return threesomes[Pips.ONE.value] * THREE if len(threesomes) != 0 else 0
         
 
     @staticmethod
     def four_of_a_kind(dice):
 
-        FOUR = Pips.FOUR.value
-        quarters = list(filter((lambda value: dice.count(value) >= FOUR), dice))
-        
+        quarters = list(filter((lambda value: dice.count(value) >= FOUR), dice))        
         return quarters[Pips.ONE.value] * FOUR if len(quarters) != 0 else 0
 
 
