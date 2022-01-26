@@ -1,5 +1,3 @@
-from curses import pair_content
-from zmq import PAIR
 from src.pips import Pips
 
 ZERO = 0
