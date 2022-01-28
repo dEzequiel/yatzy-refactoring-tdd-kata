@@ -54,12 +54,13 @@ class Yatzy:
     
     @classmethod
     def calculate_two_pairs(cls, dice):
-        return sum(set(list(filter((lambda pip: dice.count(pip) >= Value.TWO), dice))))
+        return set(list(filter((lambda pip: dice.count(pip) >= Value.TWO), dice)))
         
-    @staticmethod
-    def two_pair(dice):
-        return sum(PAIRS_LIST) * Value.TWO if len(PAIRS_LIST) == Value.TWO else Value.ZERO
+    @classmethod
+    def two_pair(cls, dice):
+        return sum(cls.calculate_two_pairs(dice)) * Value.TWO if len(cls.calculate_two_pairs(dice)) == Value.TWO else Value.ZERO
 
+    
     @staticmethod
     def three_of_a_kind(dice):
         
