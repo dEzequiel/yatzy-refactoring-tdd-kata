@@ -40,11 +40,11 @@ class Yatzy:
     
     @classmethod
     def calculate_one_pair(cls, dice):
-        return max(set(list(filter((lambda pip: dice.count(pip) >= Value.TWO), Pips.reversed_values()))))
+        return set(list(filter((lambda pip: dice.count(pip) >= Value.TWO), Pips.reversed_values())))
     
     @classmethod
     def score_pair(cls, dice):
-        return cls.calculate_one_pair(dice) * Value.TWO
+        return max(cls.calculate_one_pair(dice)) * Value.TWO if len(cls.calculate_one_pair(dice)) != Value.ZERO else Value.ZERO
     
     @classmethod
     def calculate_two_pairs(cls, dice):
