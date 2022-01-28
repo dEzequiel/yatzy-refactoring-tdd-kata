@@ -12,12 +12,6 @@ class Yatzy:
 
     @staticmethod
     def yatzy(dice):
-        
-        '''
-        Applying set() to dice it deletes all repeated elements, 
-        so if the returned list length is 1, indicates all 5 elements 
-        where repeated and only contains one of this elements
-        '''
         return Value.TOTAL_SCORE if len(set(dice)) == Value.ONE else Value.ZERO
     
     @staticmethod
@@ -60,6 +54,9 @@ class Yatzy:
     def two_pair(cls, dice):
         return sum(cls.calculate_two_pairs(dice)) * Value.TWO if len(cls.calculate_two_pairs(dice)) == Value.TWO else Value.ZERO
 
+    @classmethod
+    def number_of_a_kind(cls, dice, value):
+        return list(filter((lambda pip: dice.count(pip) >= value), dice))
     
     @staticmethod
     def three_of_a_kind(dice):
