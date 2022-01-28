@@ -44,7 +44,7 @@ class Yatzy:
     
     @classmethod
     def score_pair(cls, dice):
-        return cls.calculate_pair(dice) * Value.TWO
+        return cls.calculate_one_pair(dice) * Value.TWO
     
     @classmethod
     def calculate_two_pairs(cls, dice):
@@ -56,15 +56,12 @@ class Yatzy:
 
     @classmethod
     def number_of_a_kind(cls, dice, value):
-        return list(filter((lambda pip: dice.count(pip) >= value), dice))
+        return set((list(filter((lambda pip: dice.count(pip) >= value), dice))))
     
-    @staticmethod
-    def three_of_a_kind(dice):
+    @classmethod
+    def three_of_a_kind(cls, dice):
+        return max(cls.number_of_a_kind(dice, Pips.THREE.value)) * Value.THREE if len(cls.number_of_a_kind(dice, Pips.THREE.value)) != Value.ZERO else Value.ZERO
         
-        threesomes = list(filter((lambda value: dice.count(value) >= Value.THREE), dice))        
-        return threesomes[Pips.ONE.value] * Value.THREE if len(threesomes) != Value.ZERO else Value.ZERO
-        
-
     @staticmethod
     def four_of_a_kind(dice):
 
