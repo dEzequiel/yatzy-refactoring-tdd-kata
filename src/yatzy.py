@@ -38,8 +38,7 @@ class Yatzy:
 
     @staticmethod
     def fives(dice):
-        FIVE_PIP = Pips.FIVE.value
-        return dice.count(FIVE_PIP) * Value.FIVE
+        return dice.count(Pips.FIVE.value) * Value.FIVE
 
     @staticmethod
     def sixes(dice):
