@@ -30,8 +30,7 @@ class Yatzy:
 
     @staticmethod
     def threes(dice):
-        THREE_PIP = Pips.THREE.value
-        return dice.count(THREE_PIP) * Value.THREE
+        return dice.count(Pips.THREE.value) * Value.THREE
 
     @staticmethod
     def fours(dice):
