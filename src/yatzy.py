@@ -85,9 +85,7 @@ class Yatzy:
     @staticmethod
     def small_straight(dice):
 
-        EXCLUDED_PIP = Pips.SIX.value
-        
-        return Yatzy.chance(filter((lambda pip: Yatzy.chance(dice) if EXCLUDED_PIP not in dice and len(set(dice)) == Value.FIVE else Value.ZERO), dice))
+        return Yatzy.chance(filter((lambda pip: Yatzy.chance(dice) if Pips.SIX.value not in dice and len(set(dice)) == Value.FIVE else Value.ZERO), dice))
 
     @staticmethod
     def large_straight(dice):
