@@ -62,12 +62,9 @@ class Yatzy:
     def three_of_a_kind(cls, dice):
         return max(cls.number_of_a_kind(dice, Pips.THREE.value)) * Value.THREE if len(cls.number_of_a_kind(dice, Pips.THREE.value)) != Value.ZERO else Value.ZERO
         
-    @staticmethod
-    def four_of_a_kind(dice):
-
-        quarters = list(filter((lambda value: dice.count(value) >= Value.FOUR), dice))        
-        return quarters[Pips.ONE.value] * Value.FOUR if len(quarters) != Value.ZERO else Value.ZERO
-
+    @classmethod
+    def four_of_a_kind(cls, dice):
+        return max(cls.number_of_a_kind(dice, Pips.FOUR.value)) * Value.FOUR if len(cls.number_of_a_kind(dice, Pips.FOUR.value)) != Value.ZERO else Value.ZERO
 
     @staticmethod
     def small_straight(dice):
