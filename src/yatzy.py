@@ -42,8 +42,7 @@ class Yatzy:
 
     @staticmethod
     def sixes(dice):
-        SIX_PIP = Pips.SIX.value
-        return dice.count(SIX_PIP) * Value.SIX
+        return dice.count(Pips.SIX.value) * Value.SIX
 
     @staticmethod
     def score_pair(dice):
