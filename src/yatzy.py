@@ -34,8 +34,7 @@ class Yatzy:
 
     @staticmethod
     def fours(dice):
-        FOUR_PIP = Pips.FOUR.value
-        return dice.count(FOUR_PIP) * Value.FOUR
+        return dice.count(Pips.FOUR.value) * Value.FOUR
 
     @staticmethod
     def fives(dice):
