@@ -68,16 +68,13 @@ class Yatzy:
 
     @staticmethod
     def small_straight(dice):
-
         return Yatzy.chance(filter((lambda pip: Yatzy.chance(dice) if Pips.SIX.value not in dice and len(set(dice)) == Value.FIVE else Value.ZERO), dice))
 
     @staticmethod
     def large_straight(dice):
-        
         return Yatzy.chance(filter((lambda pip: pip if Pips.ONE.value not in dice and len(set(dice)) == Value.FIVE else Value.ZERO), dice))
 
     @staticmethod
     def full_house(dice):
-        
         return Yatzy.chance(dice) if Yatzy.score_pair(dice) and Yatzy.three_of_a_kind(dice) else Value.ZERO
 
