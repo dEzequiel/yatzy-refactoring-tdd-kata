@@ -52,14 +52,16 @@ class Yatzy:
 
     @staticmethod
     def score_pair(dice):
-        for pip in Pips.reversed_values():
-            if dice.count(pip) >= Value.TWO:
-                return pip * Value.TWO
-        return Value.ZERO
+        # for pip in Pips.reversed_values():
+        #     if dice.count(pip) >= Value.TWO:
+        #         return pip * Value.TWO
+        # return Value.ZERO
 
-        # REVERSED_DICE = Pips.reversed_values()
-        # return Yatzy.chance(filter((lambda pip: pip * TWO if REVERSED_DICE.count(pip) >= TWO else ZERO), REVERSED_DICE))
-
+        REVERSED_DICE = Pips.reversed_values()
+        
+        return [a for a in REVERSED_DICE if dice.count(a) >= Value.TWO]
+        print(x)
+        
     @staticmethod
     def two_pair(dice):
 
@@ -90,9 +92,7 @@ class Yatzy:
     @staticmethod
     def large_straight(dice):
         
-        EXCLUDED_PIP = Pips.ONE.value
-
-        return Yatzy.chance(filter((lambda pip: Yatzy.chance(dice) if EXCLUDED_PIP not in dice and len(set(dice)) == Value.FIVE else Value.ZERO), dice))
+        return Yatzy.chance(filter((lambda pip: pip if Pips.ONE.value not in dice and len(set(dice)) == Value.FIVE else Value.ZERO), dice))
 
     @staticmethod
     def full_house(dice):
