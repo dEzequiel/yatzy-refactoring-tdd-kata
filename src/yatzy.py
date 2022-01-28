@@ -22,8 +22,7 @@ class Yatzy:
     
     @staticmethod
     def ones(dice):
-        ONE_PIP = Pips.ONE.value
-        return dice.count(ONE_PIP) * Value.ONE
+        return dice.count(Pips.ONE.value) * Value.ONE
 
     @staticmethod
     def twos(dice):
